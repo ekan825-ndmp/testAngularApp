@@ -1,0 +1,157 @@
+<!-- CSS  -->
+<style>/* Dropdown Button */
+
+/*header style*/
+.headerinfo {
+  display: block;
+  max-height: 150px;
+  font-size: 28px;
+  padding: 1px;
+  background-color: #2f96b4;
+
+}
+.dropbtn {
+background-color: #2870e2;
+color: white;
+padding: 5px;
+font-size: 16px;
+border: none;
+cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+  .dropdown {
+  position: relative;
+  display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 243px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #2f96b4}
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+  display: block;
+  }
+
+  /* text align */
+  .left {
+    width: 30%;
+    float: left;
+    text-align: left;
+  }
+  .right {
+    width: 60%;
+    margin-left: 1px;
+    float: left;
+  }
+
+  .btn btn-success {
+    display: block;
+  }
+
+</style>
+<div>
+  <p class = "left">
+    <img src="images/be-the-match-logo.png"><br/><br/><br/>
+  </p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
+<br/>
+<div>
+  A simple Angular app created to access resources in MongoDB. <br/> Written by Enoch Kan @ NMDP <br/> &copy 02/15/2017
+</div><br/><br/><br/>
+<div class="headerinfo" >GET</div>
+<!--title-->
+<div class="left"><strong>Enter name of collection: </strong></div>
+<!--Specify collection name-->
+<div class="right">
+  <input  type="text" data-ng-model="testAngularCtrl.inputValue"/><br>
+  <!--http GET and DELETE-->
+  <div class="dropdown">
+    <button class="btn btn-success" data-ng-click="testAngularCtrl.gettestAngular()">Click to see available resources</button>
+    <div class="dropdown-content">
+      <div data-ng-repeat="rc in testAngularCtrl.testAngular track by $index">
+        </br>
+        <a>{{ rc.id }}
+          <button for="id" ><strong data-ng-click="testAngularCtrl.idClicked(rc.id, true)" id="id">Show More</strong></button>
+          <div data-ng-show="testAngularCtrl.showPane(rc.id)">
+            <label for="activeR"><strong>Active:</strong></label>
+            <input id="activeR" type="checkbox" data-ng-model="rc.active" />
+            <label for="context"><strong id="context">Context:</strong></label> {{rc.context}}<br/>
+            <label for="centerId"><strong id="centerId">CenterId:</strong></label> {{rc.centerId}}
+          </div></a>
+      </div>
+    </div>
+  </div>
+</div>
+<br/><div class="left">
+  <br/><strong>Address:</strong>http://localhost:8090/v1/{{testAngularCtrl.inputValue}}
+</div>
+<br/><br/><br/><br/><br/><br/>
+
+<!--http DELETE-->
+<div class="headerinfo" >DELETE</div>
+<div class="left"><strong>
+  Delete resource with id:
+</strong>
+</div>
+<div class="right">
+  <input type="text" data-ng-model="testAngularCtrl.toDelete"/><br/>
+  <button data-ng-click="testAngularCtrl.deltestAngular()">Click to delete a file</button><br/><br/><br/>
+</div><br/><br/><br/><br/><br/>
+
+
+
+<!--http POST-->
+<div class="headerinfo">POST</div>
+<div>
+  <form enctype="'application/json">
+    <div class="left">
+      <strong>
+        context:
+      </strong>
+    </div>
+    <div class="right">
+      <input name='context' type='text' data-ng-model="testAngularCtrl.contextNew"/>
+    </div>
+    <div class="left"><strong>
+      centerId:
+    </strong>
+    </div>
+    <div class="right">
+      <input name='centerId' type='text' data-ng-model="testAngularCtrl.centerIdNew"/>
+    </div>
+    <div class="left"><strong>
+      active:
+    </strong>
+    </div>
+    <div class="right">
+      <input name='active' type='text' data-ng-model="testAngularCtrl.activeNew"/><br>
+      <button data-ng-click="testAngularCtrl.newtestAngular()">Click to upload</button>
+    </div>
+  </form>
+</div><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+
+<div class="left">
+  <button data-ng-click="testAngularCtrl.clearAll()">Clear All</button>
+</div>
+
+
