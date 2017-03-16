@@ -1,4 +1,4 @@
-# test-angular-new
+# Single-page Angular Test App
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.16.0.
@@ -16,3 +16,5 @@ Run `grunt` for building and `grunt serve` for preview.
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+_please report any issues at the "issues" tab above, or email me at ekan@nmdp.org_
